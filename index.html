@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наша История</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Настройка шрифтов */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdf2f8;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, .serif-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-card {
+            background: white;
+            padding: 10px;
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        .photo-card:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section (Главный экран) -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Главное фото на катере -->
+            <img src="photo_2025-10-27_17-15-13.jpg" 
+                 alt="Romantic Background" 
+                 class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-rose-50/20 to-rose-50"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 fade-in-up">
+            <p class="text-rose-600 tracking-[0.3em] uppercase text-sm mb-4 font-semibold">История нашей любви</p>
+            <h1 class="text-6xl md:text-8xl font-thin text-slate-800 mb-6 italic serif-font">
+                Ты & Я
+            </h1>
+            <div class="w-16 h-0.5 bg-rose-400 mx-auto mb-6"></div>
+            <p class="text-xl md:text-2xl text-slate-700 font-light max-w-2xl mx-auto leading-relaxed">
+                Вместе с 12 июня 2024
+            </p>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 text-center animate-bounce">
+            <i data-lucide="chevron-down" class="w-8 h-8 mx-auto text-slate-400"></i>
+        </div>
+    </header>
+
+    <!-- Секция таймера -->
+    <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <div class="fade-in-up">
+            <h2 class="text-4xl md:text-5xl text-slate-800 mb-12 serif-font">Наше время вместе</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-rose-100">
+                    <span id="years" class="block text-4xl md:text-5xl font-semibold text-rose-400 serif-font">--</span>
+                    <span class="text-xs uppercase tracking-widest text-slate-500 mt-2 block">Год(а)</span>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-rose-100">
+                    <span id="months" class="block text-4xl md:text-5xl font-semibold text-rose-400 serif-font">--</span>
+                    <span class="text-xs uppercase tracking-widest text-slate-500 mt-2 block">Месяцев</span>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-rose-100">
+                    <span id="weeks" class="block text-4xl md:text-5xl font-semibold text-rose-400 serif-font">--</span>
+                    <span class="text-xs uppercase tracking-widest text-slate-500 mt-2 block">Недель</span>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-rose-100">
+                    <span id="days" class="block text-4xl md:text-5xl font-semibold text-rose-400 serif-font">--</span>
+                    <span class="text-xs uppercase tracking-widest text-slate-500 mt-2 block">Дней</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Предложения -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-rose-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2 fade-in-up delay-100">
+                    <div class="relative">
+                        <div class="absolute inset-0 border-2 border-rose-200 translate-x-4 translate-y-4 rounded-xl"></div>
+                        
+                        <!-- ВИДЕО ПРЕДЛОЖЕНИЯ -->
+                        <!-- poster="..." это картинка-заставка, пока видео не нажали -->
+                        <video controls playsinline class="rounded-xl shadow-xl w-full h-[500px] object-cover relative z-10 bg-black" poster="photo_2026-02-04_20-03-28.jpg">
+                            <!-- Я добавил два варианта расширения, чтобы браузер сам выбрал нужный -->
+                            <source src="IMG_0186.mp4" type="video/mp4">
+                            <source src="IMG_0186.MOV" type="video/quicktime">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left fade-in-up">
+                    <div class="inline-flex items-center gap-2 text-rose-500 mb-4 bg-rose-50 px-4 py-1 rounded-full">
+                        <i data-lucide="heart" class="w-4 h-4 fill-current"></i>
+                        <span class="text-sm font-medium tracking-wide">Самый важный день</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl text-slate-800 mb-6 serif-font leading-tight">
+                        Она сказала <br> <span class="italic text-rose-500">"Да"</span>
+                    </h2>
+                    <div class="flex items-center justify-center md:justify-start gap-4 mb-8">
+                        <div class="h-px w-12 bg-slate-300"></div>
+                        <span class="text-2xl font-serif text-slate-600">21 Июля</span>
+                        <div class="h-px w-12 bg-slate-300"></div>
+                    </div>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                        Этот день навсегда останется в моей памяти. Момент, когда мы решили идти по жизни вместе, рука об руку.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Большая Галерея (Masonry Grid) -->
+    <section class="py-20 px-4 bg-rose-50/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-center text-4xl md:text-5xl text-slate-800 mb-16 serif-font fade-in-up">Наш альбом</h2>
+            
+            <div class="columns-1 md:columns-3 lg:columns-4 gap-6 space-y-6">
+                
+                <!-- Закат (Холм) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-08-26_04-41-36.jpg" class="w-full rounded" alt="Sunset">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Самые красивые закаты</p>
+                </div>
+
+                <!-- Смешное фото (Звонок) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-04-26_11-32-40.jpg" class="w-full rounded" alt="Funny call">  
+                </div>
+
+                <!-- Цветы (ДР) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-03-23_02-14-07.jpg" class="w-full rounded" alt="Birthday">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">С днем рождения, любимая</p>
+                </div>
+
+                <!-- Нежность (Сон) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-04-05_00-58-56.jpg" class="w-full rounded" alt="Sleepy cuddles">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Самые нежные моменты</p>
+                </div>
+
+                <!-- Аттракционы (Банан) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-07-10_16-05-32.jpg" class="w-full rounded" alt="Fun">
+                </div>
+
+                <!-- Зима (Красное платье) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2026-02-04_20-02-52.jpg" class="w-full rounded" alt="Red dress">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Восхитительна</p>
+                </div>
+
+                <!-- Кафе -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-12-07_18-07-26.jpg" class="w-full rounded" alt="Cafe">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Уютные вечера</p>
+                </div>
+
+                <!-- Закат (Поцелуй) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-08-26_04-41-03.jpg" class="w-full rounded" alt="Kiss sunset">
+                </div>
+
+                <!-- Селфи близко (Веб-камера/телефон) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2024-11-28_17-09-07.jpg" class="w-full rounded" alt="Close selfie">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Просто мы</p>
+                </div>
+
+                <!-- Осень -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-10-08_22-42-32.jpg" class="w-full rounded" alt="Autumn">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Золотая осень</p>
+                </div>
+
+                <!-- Зима (Кремль) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-12-12_14-08-12.jpg" class="w-full rounded" alt="Winter walk">
+                </div>
+
+                <!-- Метро/Поезд (Сонные) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-12-12_14-08-03.jpg" class="w-full rounded" alt="Subway">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">В пути домой</p>
+                </div>
+
+                <!-- Лилии (Ночь) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-06-15_00-58-33.jpg" class="w-full rounded" alt="Lilies">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Ночная магия</p>
+                </div>
+
+                <!-- Американские горки -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-07-15_23-23-45.jpg" class="w-full rounded" alt="Rollercoaster">
+                </div>
+
+                <!-- Зеркальная комната -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-12-21_23-14-03.jpg" class="w-full rounded" alt="Lights">
+                </div>
+
+                <!-- Сон с собачкой -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2026-02-04_20-06-38.jpg" class="w-full rounded" alt="Sleepy dog">
+                </div>
+
+                <!-- Поле/Небо -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-06-14_19-04-52.jpg" class="w-full rounded" alt="Sky">
+                </div>
+
+                <!-- Ватрушка (Море) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-07-11_15-45-51.jpg" class="w-full rounded" alt="Sea tube">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Летний драйв</p>
+                </div>
+
+                <!-- Селфи крупно (Смешное) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-06-30_18-10-42.jpg" class="w-full rounded" alt="Close up">
+                </div>
+
+                <!-- Зима (Кремль стена) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-12-12_14-08-29.jpg" class="w-full rounded" alt="Winter wall">
+                </div>
+
+                <!-- Зима (Пара + собака) -->
+                <div class="photo-card rounded-lg fade-in-up">
+                    <img src="photo_2025-12-12_14-06-12.jpg" class="w-full rounded" alt="Winter together">
+                    <p class="mt-2 text-center font-handwriting text-slate-500 text-sm serif-font italic">Счастье в мелочах</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 text-center border-t border-rose-100">
+        <div class="fade-in-up">
+            <h3 class="text-3xl text-slate-800 mb-4 serif-font italic">Люблю тебя</h3>
+            <div class="flex justify-center gap-4 mb-6">
+                <i data-lucide="heart" class="w-5 h-5 text-rose-400 fill-current"></i>
+            </div>
+            <p class="text-sm text-slate-400 uppercase tracking-widest">Создано для нас</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            observer.observe(el);
+        });
+
+        function updateCounter() {
+            // ДАТА: 12 июня 2024
+            const startDate = new Date('2024-06-12'); 
+            const now = new Date();
+            const difference = now - startDate;
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const weeks = Math.floor(days / 7);
+            
+            let yearsDiff = now.getFullYear() - startDate.getFullYear();
+            let monthsDiff = now.getMonth() - startDate.getMonth();
+            if (monthsDiff < 0 || (monthsDiff === 0 && now.getDate() < startDate.getDate())) {
+                yearsDiff--;
+                monthsDiff += 12;
+            }
+            if (now.getDate() < startDate.getDate()) {
+                 monthsDiff--;
+                 if (monthsDiff < 0) monthsDiff = 11;
+            }
+            
+            document.getElementById('years').innerText = yearsDiff;
+            document.getElementById('months').innerText = monthsDiff;
+            document.getElementById('weeks').innerText = weeks;
+            document.getElementById('days').innerText = days;
+        }
+        updateCounter();
+    </script>
+</body>
+</html>
